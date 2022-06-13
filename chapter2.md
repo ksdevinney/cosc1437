@@ -64,3 +64,99 @@ char: single character in single quotes, ex 'A'
 Initialization: you can assign a value to a variable when you declare it
 
 ## Operators
+
+Can be unary, binary, or ternary depending on how many operands are required
+
+Unary: requires a single operand (negative sign)
+
+Binary: two operands (+-*/%)
+
+Integer division: when both operands of a division operator are integers; fractional part of the quotient is thrown away
+ex: number = 5 / 2
+5 and 2 are both integers, so number = 2
+To avoid this, one operand must be a float, ex 5.0
+
+Highest precedence operators:  -(negative), then *, /, %, then + -
+
+Math: library provided by Java API
+
+Java contains *combined assignment operators* as well, += and the like
+
+## Data Type Conversion
+
+Data cannot be stored in variables that would cause a "loss of precision," ex: double cannot be stored in an int
+
+Primitive data types, from highest precision to lowest:
+* double
+* float
+* long
+* int
+* short
+* byte
+
+Widening conversion: when values of lower-ranked data types are stored in a higher-rank, data is automatically converted (short to float)
+
+Java does not automatically perform *narrowing conversions* because they can cause a loss of data (float to int), must use a *cast operator*
+ex: x = (int)number
+Values are truncated, but does not change the content of the variable
+
+Values of byte and short are converted to int for mathematic operations
+
+If one operand is a double, the value of the other operand will be converted to a double- answer will be a double
+
+If one operand is a float, the other value will be converted to a float, and the answer will be a float
+
+If one operand is a long, the other will be converted to a long, and the answer will be a long
+
+## Named Constants
+
+Named constants: values that cannot be changed
+
+Use *final* in the declaration ahead of the data type
+EX: final double INTEREST = 0.69
+
+Constants are named in all caps by convention
+
+Cannot use a final value before it has a value, final cannot be changed after it is declared
+
+Math.PI is a named constant from the Java API
+
+## String Class
+
+String: a sequence of characters
+
+Java does not have a data type for strings, but the Java API provides a class for handling them
+
+Each object created from a class is an instance of the class
+
+Primitive-type variables hold data items; class-type variables hold the address in memory of the data it is associated with
+Reference variables = class-type variables
+
+Strings contain methods to use on strings, ex: .length(), .charAt(index), .toLowerCase(), .toUpperCase()
+
+## Scope
+
+Scope: part of the program where a variable may be accessed
+
+Local variables: declared inside a method
+
+Scope of a local variable begins with the variable's declaration and ends at the end of the method where it is declared
+
+More about this later, for now:
+* Cannot use a variable before it has been declared
+* Cannot have two local variables of the same name in the same scope
+
+## Comments
+
+Write them
+
+// single line
+
+/* multi-line */
+
+Some programmers use * around their comments to visually separate them from the code
+
+/** Documentation comments can be read by javadoc */
+
+Javadoc exampleProgram.java creates documentation for exampleProgram in HTML
+
