@@ -160,3 +160,75 @@ Some programmers use * around their comments to visually separate them from the 
 
 Javadoc exampleProgram.java creates documentation for exampleProgram in HTML
 
+## Keyboard Input
+
+System.in allows the program to read values from the keyboard; can only take in byte values
+
+Scanner class can allow the program to read input of other data types. To use, declare a new variable of type Scanner, then create a Scanner object to read input from System.in, ex:
+Scanner keyboard = new Scanner(System.in);
+
+Scanner class has methods for reading different data types:
+nextByte(), nextInt(), nextDouble(), nextLine(), nextLong(), nextShort()
+
+Scanner must be imported manually:
+import java.util.Scanner;
+
+No method for reading a character, instead use nextLine() to read a string and then charAt(0) to get the first character typed
+
+nextLine() does not skip newline characters, which are automatically included in the *keyboard buffer* after pressing Enter
+To get around this, include a statement to consume the nextline character after taking input, ex keyboard.nextLine()
+
+## Dialog Boxes
+
+Use JOptionPane class to quickly create dialog boxes
+
+Message dialog: displays a message and dismissal button
+
+Input dialog: prompts the user for input, has an input box, OK, and cancel buttons
+
+JOptionPane must be imported:
+import javax.swing.JOptionPane;
+
+showMessageDialog allows a message to be displayed:
+JOptionPane.showMessageDialog(null, "message");
+
+showInputDialog allows the user to enter input:
+String name;
+name = JOptionPane.showInputDialog("message: ");
+
+must include system.exit(0); at the end of the main method
+
+showInputDialog always returns input as a string, if you want a number value you will need to convert:
+Integer.parseInt(string)
+
+## Displaying Formatted Output
+
+To format output for the console, use System.out.printf(FormatString, ArgumentList)
+FormatString: string to be formatted
+ArgumentList: 0 or more additional arguments to format output
+
+printf can use format specifiers (%f) to print a non-string from the argument list
+
+%f: float and double
+%d: int, short, and long
+
+%[flags][width][.precision]conversion
+
+ex: %.2f will round to 2 decimal places instead of 6
+Can only use precision with %f
+
+width: minimum number of spaces used to display the value- will be right justified if value is smaller than specified width
+
+Flags:
+* display numbers with comma separators (,)
+* pad numbers with leading zeroes (0)
+* left justify numbers (-)
+
+System.out.printf("%,15.2f\n", amount) 
+prints variable amount with commas, in a minimum of 15 spaces, rounded to 2 decimals
+
+Strings (%s) can also use field width and left justified flags
+
+String.format for when you need to format a string that will not be displayed in the console
+
+Works the same as printf, but it allows you to assign a reference to the formatted string to a variable
