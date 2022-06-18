@@ -10,13 +10,15 @@ package pet.devinneyassignment1;
  */
 public class DevinneyPet {
     private String Name;    // pet name
-//    private String Type;    // type of pet
-//    private int Age;        // pet's age
+    private String Type;    // type of pet
+    private int Age;        // pet's age
 //    private int Weight;     // pet weight
 //    private String Color;   // color of pet
 
-    public DevinneyPet (String newName) {
+    public DevinneyPet (String newName, String newType, int newAge) {
         Name = newName;
+        Type = newType;
+        Age = newAge;
     }
 
     // class methods
@@ -27,6 +29,22 @@ public class DevinneyPet {
 
     public String getName() {
         return Name;
+    }
+    
+    public void setType(String petType) {
+        this.Type = petType;
+    }
+    
+    public String getType() {
+        return Type;
+    }
+    
+    public void setAge(int petAge) {
+        this.Age = petAge;
+    }
+    
+    public int getAge() {
+        return Age;
     }
 
 }
