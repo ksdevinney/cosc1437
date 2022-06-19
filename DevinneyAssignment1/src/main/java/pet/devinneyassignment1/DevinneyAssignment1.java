@@ -17,24 +17,31 @@ public class DevinneyAssignment1 {
         String petName;
         String petType;
         int petAge;
+        int petWeight;
+        String petColor;
         
         Scanner scnr = new Scanner(System.in);
         
         System.out.println("Enter your pet's name: ");
         petName = scnr.nextLine();
         
-        // consume the nelwine
-        // scnr.nextLine();
-        
         System.out.println("Enter the type of pet: ");
         petType = scnr.nextLine();
         
-        System.out.println("How old is your pet?");
+        System.out.println("Enter the pet's age, in years: ");
         petAge = scnr.nextInt();
         
-        testPet = new DevinneyPet(petName, petType, petAge);
+        System.out.println("Enter the pet's weight, in pounds: ");
+        petWeight = scnr.nextInt();
         
-        System.out.println(testPet.getName() + " is a " + testPet.getType());
-        System.out.printf("Your pet's age is %d", testPet.getAge());
+        //consume the nelwine
+        scnr.nextLine();
+        
+        System.out.println("What color is your pet?");
+        petColor = scnr.nextLine();
+        
+        testPet = new DevinneyPet(petName, petType, petAge, petWeight, petColor);
+
+        testPet.printStory();
     }
 }
