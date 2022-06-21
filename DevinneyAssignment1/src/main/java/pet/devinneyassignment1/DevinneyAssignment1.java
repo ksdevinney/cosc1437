@@ -1,5 +1,6 @@
 /** 
- * This is a program that takes information through user input
+ * This is a program that takes information through user input,
+ * creates a class, 
  * and creates a story about a pet
  */
 
@@ -60,7 +61,14 @@ public class DevinneyAssignment1 {
         
         // initialize instance of DevinneyPet class
         testPet = new DevinneyPet(petName, petType, petAge, petWeight, petColor);
-
+        
+        // get methods to retrieve stored values
+        System.out.println("Name: " + testPet.getName());
+        System.out.println("Type: " + testPet.getType());
+        System.out.println("Age: " + testPet.getAge());
+        System.out.println("Weight: " + testPet.getWeight());
+        System.out.println("Color: " + testPet.getColor());
+        
         // print the story for the information entered
         testPet.printStory();
     }
