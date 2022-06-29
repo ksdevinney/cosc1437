@@ -80,3 +80,21 @@ Ex:
 System.out.println("Your grade is: " + (score < 60 ? "Fail" : "Pass"));
 
 ## Switch
+
+*Mutliple alternative* decision structure; allows the use of a variable or expression to determine where to branch
+
+Swtich statements contain an expression to test and cases for each expected value. Cases contain statements to execute, followed by **break**
+Optional *default* section provides code to execute when expression does not match any case
+
+Default statement does not need a break, but may be good to include for consistency
+
+## Generating Random Numbers
+
+Random is a class provided by Java
+
+import java.util.Random;
+
+After creating an instance of Random, you can use .nextInt() to get a random number (any number in the int range)
+Can also pass an argument to set the upper limit to the generated number's range -1
+
+.nextDouble() and .nextFloat() will return a number between 0 and 1
