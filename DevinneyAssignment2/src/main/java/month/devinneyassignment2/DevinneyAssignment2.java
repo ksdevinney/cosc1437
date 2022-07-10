@@ -15,22 +15,42 @@ import java.util.Scanner;
 public class DevinneyAssignment2 {
 
     public static void main(String[] args) {
+        Scanner scnr = new Scanner(System.in);
+
+        // test objects
         DevinneyMonth testMonth;
         DevinneyMonth testMonth2;
+        DevinneyMonth testMonth3;
+        DevinneyMonth testMonth4;
         
+        // test with no arg constructor
         testMonth = new DevinneyMonth();
         
+        // variables for other constructors
         int monthNumber;
+        String nameOfMonth;
         
-        Scanner scnr = new Scanner(System.in);
-        
+        // test single int constructor
         System.out.println("Enter a number between 1 and 12. ");
         monthNumber = scnr.nextInt();
-        
         testMonth2 = new DevinneyMonth(monthNumber);
         
-        System.out.println(testMonth.get());
+        // consume the extra newline character
+        scnr.nextLine();
         
-        System.out.println(testMonth2.get());
+        // test string constructor
+        System.out.println("Enter the name of a month: ");
+        nameOfMonth = scnr.nextLine();
+        testMonth3 = new DevinneyMonth(nameOfMonth);
+        
+        testMonth4 = new DevinneyMonth(testMonth3);
+        
+        System.out.println("test 1: " + testMonth.get());
+        
+        System.out.println("test 2: " + testMonth2.get());
+        
+        System.out.println("test 3: " + testMonth3.get());
+        
+        System.out.println("copy: " + testMonth4.get());
     }
 }
