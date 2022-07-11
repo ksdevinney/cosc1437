@@ -14,7 +14,7 @@ public class DevinneyMonth {
     private int Number;
     
     /** 
-     * no arg constructor method
+     * no argument constructor method
      * sets Number to 1 if no argument is passed
      */
     
@@ -35,7 +35,6 @@ public class DevinneyMonth {
         else {
             this.Number = 1;
         }
-        
     }
     
     /** 
@@ -94,11 +93,50 @@ public class DevinneyMonth {
         this.Number = month.Number;
     }
     
+    /**
+     * returns the value set for Number
+     * @return int Number
+     */
+    
     public int get() {
         return Number;
     }
     
+    /**
+     * sets a number for a DevinneyMonth object
+     * @param Number value to be set
+     */
+    
     public void set(int Number) {
         this.Number = Number;
     }
+    
+    /**
+     * makes a copy of the object using a calling object
+     * @return copied DevinneyMonth
+     */
+    
+    public DevinneyMonth copy() {
+        DevinneyMonth copyMonth = new DevinneyMonth(Number);
+        return copyMonth;
+    }
+    
+    /**
+     * toString method
+     * @return a string describing the object
+     */
+    
+    public String toString() {
+        String str = "Month is " + this.Number;
+        
+        return str;
+    }
+    
+//    public boolean equals(DevinneyMonth month) {
+//        
+//    }
+    
+//    public int compareTo(DevinneyMonth month) {
+//        
+//    }
 }

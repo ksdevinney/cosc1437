@@ -22,9 +22,12 @@ public class DevinneyAssignment2 {
         DevinneyMonth testMonth2;
         DevinneyMonth testMonth3;
         DevinneyMonth testMonth4;
+        DevinneyMonth testCopy;
         
         // test with no arg constructor
         testMonth = new DevinneyMonth();
+        // test the set method
+        testMonth.set(3);
         
         // variables for other constructors
         int monthNumber;
@@ -45,6 +48,8 @@ public class DevinneyAssignment2 {
         
         testMonth4 = new DevinneyMonth(testMonth3);
         
+        testCopy = testMonth2.copy();
+        
         System.out.println("test 1: " + testMonth.get());
         
         System.out.println("test 2: " + testMonth2.get());
@@ -52,5 +57,7 @@ public class DevinneyAssignment2 {
         System.out.println("test 3: " + testMonth3.get());
         
         System.out.println("copy: " + testMonth4.get());
+        
+        System.out.println("Copy method: " + testCopy.toString());
     }
 }
