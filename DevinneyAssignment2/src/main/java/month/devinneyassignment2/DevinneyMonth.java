@@ -1,6 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+/**
+ * Class for storing an int representing a month's number,
+ * uses methods to compare objects of the same type
+ * and retrieve String representations of the month
  */
 
 package month.devinneyassignment2;
@@ -112,13 +113,11 @@ public class DevinneyMonth {
     }
     
     /**
-     * 
-     * @param a DevinneyMonth object
+     * method that uses the number field to get the name of the month
      * @return String name representing the month
      */
     
     public String getName() {
-        //int monthNumber = this.Number;
         
         String str; 
         
@@ -185,6 +184,12 @@ public class DevinneyMonth {
         return str;
     }
     
+    /**
+     * determines if the calling DevinneyMonth is equal to the parameter
+     * @param month object to compare to calling object
+     * @return true for equal, false for not equal
+     */
+    
     public boolean equals(DevinneyMonth month) {
         if (this.Number == month.Number) {
             return true;
@@ -193,6 +198,12 @@ public class DevinneyMonth {
             return false;
         }
     }
+    
+    /**
+     * compares calling month and month parameter
+     * @param month object to compare
+     * @return 0 for equal, 1 if calling month is greater, -1 if calling month is less
+     */
     
     public int compareTo(DevinneyMonth month) {
         if (this.Number == month.Number) {
