@@ -112,6 +112,59 @@ public class DevinneyMonth {
     }
     
     /**
+     * 
+     * @param a DevinneyMonth object
+     * @return String name representing the month
+     */
+    
+    public String getName() {
+        //int monthNumber = this.Number;
+        
+        String str; 
+        
+        switch (this.Number) {
+            case 12:
+                str = "December";
+                break;
+            case 11:
+                str = "November";
+                break;
+            case 10:
+                str = "October";
+                break;
+            case 9:
+                str = "September";
+                break;
+            case 8:
+                str = "August";
+                break;
+            case 7:
+                str = "July";
+                break;
+            case 6:
+                str = "June";
+                break;
+            case 5:
+                str = "May";
+                break;
+            case 4:
+                str = "April";
+                break;
+            case 3:
+                str = "March";
+                break;
+            case 2:
+                str = "February";
+                break;
+            case 1:
+            default:
+                str = "January";
+        }
+        
+        return str;
+    }
+    
+    /**
      * makes a copy of the object using a calling object
      * @return copied DevinneyMonth
      */
@@ -132,11 +185,24 @@ public class DevinneyMonth {
         return str;
     }
     
-//    public boolean equals(DevinneyMonth month) {
-//        
-//    }
+    public boolean equals(DevinneyMonth month) {
+        if (this.Number == month.Number) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
     
-//    public int compareTo(DevinneyMonth month) {
-//        
-//    }
+    public int compareTo(DevinneyMonth month) {
+        if (this.Number == month.Number) {
+            return 0;
+        }
+        else if (this.Number > month.Number) {
+            return 1;
+        } 
+        else {
+            return -1;
+        }
+    }
 }

@@ -5,8 +5,6 @@
 
 package month.devinneyassignment2;
 
-import java.util.Scanner;
-
 /**
  *
  * @author katiedevinney
@@ -15,49 +13,57 @@ import java.util.Scanner;
 public class DevinneyAssignment2 {
 
     public static void main(String[] args) {
-        Scanner scnr = new Scanner(System.in);
 
         // test objects
         DevinneyMonth testMonth;
         DevinneyMonth testMonth2;
         DevinneyMonth testMonth3;
         DevinneyMonth testMonth4;
-        DevinneyMonth testCopy;
         
         // test with no arg constructor
         testMonth = new DevinneyMonth();
-        // test the set method
-        testMonth.set(3);
         
         // variables for other constructors
-        int monthNumber;
-        String nameOfMonth;
+        int monthNumber = 2;
+        String nameOfMonth = "October";
         
         // test single int constructor
-        System.out.println("Enter a number between 1 and 12. ");
-        monthNumber = scnr.nextInt();
         testMonth2 = new DevinneyMonth(monthNumber);
         
-        // consume the extra newline character
-        scnr.nextLine();
-        
         // test string constructor
-        System.out.println("Enter the name of a month: ");
-        nameOfMonth = scnr.nextLine();
         testMonth3 = new DevinneyMonth(nameOfMonth);
         
+        // test copy constructor
+        // copy month3 to month 4
         testMonth4 = new DevinneyMonth(testMonth3);
         
-        testCopy = testMonth2.copy();
+        // test get method
+        System.out.println("Month 1: " + testMonth.get());
+        System.out.println("Month 2: " + testMonth2.get());
+        System.out.println("Month 3: " + testMonth3.get());
         
-        System.out.println("test 1: " + testMonth.get());
+        // test getName method
+        System.out.println("Month 1: " + testMonth.getName());
+        System.out.println("Month 2: " + testMonth2.getName());
+        System.out.println("Month 3: " + testMonth3.getName());
         
-        System.out.println("test 2: " + testMonth2.get());
+        // use set method
+        testMonth.set(9);
         
-        System.out.println("test 3: " + testMonth3.get());
+        // use toString on all months
+        System.out.println("Month 1 state: " + testMonth);
+        System.out.println("Month 2 state: " + testMonth2);
+        System.out.println("Month 3 state: " + testMonth3);
+        System.out.println("Month 4 state: " + testMonth4);
         
-        System.out.println("copy: " + testMonth4.get());
+        // equals method
+        System.out.println("Month 1 equals Month 2? " + testMonth.equals(testMonth2));
         
-        System.out.println("Copy method: " + testCopy.toString());
+        // compare method
+        System.out.println("Compare Month 2 to Month 3: " + testMonth2.compareTo(testMonth3));
+        
+        // copy method
+        DevinneyMonth monthCopy = testMonth3.copy();
+        System.out.println(monthCopy);
     }
 }
