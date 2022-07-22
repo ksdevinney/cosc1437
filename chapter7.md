@@ -96,3 +96,46 @@ Array of strings is a reference variable that references each individual string 
 If not initialized, String arrays will be set to null at each element
 
 Arrays of objects!
+You can also create an array of class objects
+Array will be initialized to null values, must create objects each element will reference
+
+Sequential search: uses a loop to sequentially step through each element in an array, compares each value to the value being searched for
+
+## Selection sort and binary search
+
+sort: arrange data in some order
+search: locate a specific item
+
+Selection sort: smallest value is located and moved to index 0, next smallest value is located and moved to index 1...
+
+public static void selctionSort(int array[]) {
+    int startScan, index, minValue, minIndex;
+    for (startScan = 0; startScan < array.length - 1; startScan++) {
+        minIndex = startScan;
+        minValue = array[startScan];
+
+        for (index = startScan + 1; index < array.length; index++) {
+            if (array[index] < minValue) {
+                minValue = array[index];
+                minIndex = index;
+            }
+        }
+        array[minIndex] = array[startScan];
+        array[startScan] = minValue;
+    }
+}
+
+Binary search: values must be sorted in ascending order, starts in the middle and compares to the value being looked for, then starts in the middle of the first half (for a smaller value) to the last half (for a larger value)
+
+Longer and I don't feel like typing it :(
+
+Two-dimensional arrays: array of arrays, "rows" and "columns"
+int[][] array = new int[3][3]
+
+Use nested loops to access an element in a 2D array
+
+To initialize a 2D array, encolse each row's initialization list in its own set of braces
+int[][] numbers = { {1, 2, 3}, {4, 5, 6}. {7, 8, 9} };
+
+2D arrays have multiple length fields: one for holding the number of rows, each row holds a length field for the number of columns
+
