@@ -139,3 +139,37 @@ int[][] numbers = { {1, 2, 3}, {4, 5, 6}. {7, 8, 9} };
 
 2D arrays have multiple length fields: one for holding the number of rows, each row holds a length field for the number of columns
 
+Ragged array: when rows of 2D arrays have different lengths
+
+Java does not limit the number of dimensions an array can have- go nuts
+
+When running a program via the command line, you can pass in arguments
+
+vararg parameter: ... following data type in method header means any number of arguments can be passed
+public static int sum(int... numbers)
+
+### ArrayList Class
+
+Similar to an array, but the size adjusts automatically, allowing items to be added or removed
+
+Can be used for storing and retrieving objects
+
+Needs to be imported from java.util.ArrayList;
+
+To create an arraylist:
+ArrayList<dataType> nameList = new ArrayList<dataType>();
+*second dataType not required in Java 7 and beyond*
+
+.add() adds items to an ArrayList
+.size() returns number of items stored
+.get(index) returns item stored at specified index
+.toString() prints a string representing the items in the ArrayList
+.remove(index) removes an item at the specified index
+.add(index) adds an item at the specified index (moves other items)
+.replace(index, item) can replace the item at the specified index with a new item
+
+The enhanced for loop can also be used with ArrayLists
+
+Capacity: number of items an ArrayList can store without having to increase its size
+10 by default
+Can specify a different capacity at initialization
