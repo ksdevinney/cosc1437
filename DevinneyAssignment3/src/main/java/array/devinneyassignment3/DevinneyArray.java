@@ -1,5 +1,6 @@
 /**
- *
+ * methods for working with an array designed to hold a list of names
+ * 
  */
 
 package array.devinneyassignment3;
@@ -17,19 +18,33 @@ public class DevinneyArray {
    private ArrayList<String> Names;
    private int Number;
    
+   /**
+    * no-arg constructor that creates an empty array
+    */
+   
    public DevinneyArray() {
-       Number = 200;
-       Names = new ArrayList<>(Number);  
+       Names = new ArrayList<>(200);
+       this.Initialize();
    }
    
-//   public void Initialize() {
-//       if (!Names.isEmpty()) {
-//           Names.clear();
-//       }
-//       
-//       Number = 200;
-//       Names = new ArrayList<>(Number);
-//   }
+   /**
+    * if the array has already been created, reset it
+    * otherwise, create an empty array for 200 strings
+    */
+   
+   public void Initialize() {
+       if (!Names.isEmpty()) {
+           Names.clear();
+       }
+       
+       Number = 0;
+       Names = new ArrayList<>(Number);
+   }
+   
+   /**
+    * reads names from file and adds each name to array
+    * @throws IOException when file cannot be opened
+    */
    
    public void ReadFromFile() throws IOException {
        File nameFile = new File("src/Assignment3DataFile.txt");
@@ -39,6 +54,8 @@ public class DevinneyArray {
            String line = inFile.nextLine();
            Names.add(line);
        }
+       
+       Number = Names.size();
        
        inFile.close();
    }
@@ -66,11 +83,40 @@ public class DevinneyArray {
    public void Output() {
        int i;
        
-       System.out.printf("The array of %d items is:\n", Number);
+       System.out.printf("The array of %d items is:\n", Names.size());
        
        for (i = 0; i < Names.size(); i++) {
            System.out.println(Names.get(i));
        }
+   }
+   
+   /**
+    * uses binary search to find a specified value
+    * @param S the name to be searched for
+    * @return true if name is present in the list, false if not
+    */
+   
+   public boolean Found(String S) {
+       int first = 0;
+       int middle;
+       int last = Names.size() - 1;
+       // int position = -1;
+       boolean found = false;
+       
+       while (!found && first <= last) {
+           middle = (first + last) / 2;
+           if (Names.get(middle).compareTo(S) == 0) {
+               found = true;
+               // position = middle;
+           }
+           else if (Names.get(middle).compareTo(S) > 0) {
+               last = middle - 1;
+           }
+           else {
+               first = middle + 1;
+           }
+       }
+       return found;
    }
    
    /**
@@ -84,6 +130,30 @@ public class DevinneyArray {
            if (Names.get(i).equals(S)) {
                System.out.printf("%s found at index %d\n", S, i);
            }
+       }
+   }
+   
+   /**
+    * uses selection sort algorithm to sort names in alphabetical order
+    */
+   
+   public void Sort() {
+       int startScan, index, minIndex; 
+       String minValue;
+       
+       for (startScan = 0; startScan < Names.size() - 1; startScan++) {
+           minIndex = startScan;
+           minValue = Names.get(startScan);
+           
+           for (index = startScan + 1; index < Names.size(); index++) {
+               if (Names.get(index).compareTo(minValue) < 0) {
+                   minValue = Names.get(index);
+                   minIndex = index;
+               }
+           }
+           
+           Names.set(minIndex, Names.get(startScan));
+           Names.set(startScan, minValue);
        }
    }
    
@@ -110,5 +180,26 @@ public class DevinneyArray {
        }
    }
    
+   /**
+    * prints the contents of the array
+    * @return String version of the array
+    */
    
+   public String ToString() {
+       String list;
+       StringBuilder summary = new StringBuilder();
+       
+       summary.append("Names[");
+       summary.append(this.Number);
+       summary.append("]: ");
+       
+       for (int i = 0; i < Names.size(); i++) {
+           summary.append(Names.get(i));
+           summary.append(", ");
+       }
+       
+       list = summary.toString();
+       
+       return list;
+   }
 }
