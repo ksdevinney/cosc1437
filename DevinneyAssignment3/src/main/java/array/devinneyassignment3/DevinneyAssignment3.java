@@ -1,5 +1,5 @@
 /**
- * creates an array and does some other fun things
+ * uses the DevinneyArray class to create and manipulate an array
  */
 
 package array.devinneyassignment3;
@@ -18,10 +18,10 @@ public class DevinneyAssignment3 {
         DevinneyArray testArray = new DevinneyArray();
         
         // use input method
-        // testArray.Input(2);
+        testArray.Input(2);
         
         // use output method
-        // testArray.Output();
+        testArray.Output();
         
         // clear array
         testArray.Initialize();
@@ -30,7 +30,7 @@ public class DevinneyAssignment3 {
         testArray.ReadFromFile();
         
         // output again
-        // testArray.Output();
+        testArray.Output();
         
         // searchandoutput method
         testArray.SearchAndOutput("Emma");
@@ -44,6 +44,13 @@ public class DevinneyAssignment3 {
         // output again
         testArray.Output();
         
+        // tostring method
         System.out.println(testArray.ToString());
+        
+        // sort method
+        testArray.Sort();
+        
+        // output sorted list
+        testArray.Output();
     }
 }
