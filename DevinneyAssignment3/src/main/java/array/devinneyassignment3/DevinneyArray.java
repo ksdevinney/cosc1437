@@ -1,14 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+/**
+ *
  */
+
+package array.devinneyassignment3;
 
 /**
  *
  * @author katiedevinney
+ * @version 1.0
  */
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.*;
 
 public class DevinneyArray {
    private ArrayList<String> Names;
@@ -24,9 +27,21 @@ public class DevinneyArray {
 //           Names.clear();
 //       }
 //       
-//       Number = 0;
+//       Number = 200;
 //       Names = new ArrayList<>(Number);
 //   }
+   
+   public void ReadFromFile() throws IOException {
+       File nameFile = new File("src/Assignment3DataFile.txt");
+       Scanner inFile = new Scanner(nameFile);
+       
+       while (inFile.hasNext()) {
+           String line = inFile.nextLine();
+           Names.add(line);
+       }
+       
+       inFile.close();
+   }
    
    /**
     * reads strings from the console and adds them to the array
@@ -53,7 +68,7 @@ public class DevinneyArray {
        
        System.out.printf("The array of %d items is:\n", Number);
        
-       for (i = 0; i < Number; i++) {
+       for (i = 0; i < Names.size(); i++) {
            System.out.println(Names.get(i));
        }
    }
@@ -67,7 +82,7 @@ public class DevinneyArray {
        
        for (i = 0; i < Names.size(); i++) {
            if (Names.get(i).equals(S)) {
-               System.out.printf("%s found at index %d", S, i);
+               System.out.printf("%s found at index %d\n", S, i);
            }
        }
    }
@@ -80,4 +95,20 @@ public class DevinneyArray {
    public String Get(int N) {
        return Names.get(N);
    }
+   
+   /**
+    * sets an element at desired position, or 0 if position is out of bounds
+    * @param N index to set
+    * @param S element to set
+    */
+   public void Set(int N, String S) {
+       if (N >= Names.size()) {
+           Names.set(0, S);
+       }
+       else {
+           Names.set(N, S);
+       }
+   }
+   
+   
 }
