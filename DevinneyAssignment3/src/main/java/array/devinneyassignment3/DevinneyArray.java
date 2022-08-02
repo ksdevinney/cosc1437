@@ -33,6 +33,7 @@ public class DevinneyArray {
     */
    
    public void Initialize() {
+       // clear array
        if (!Names.isEmpty()) {
            Names.clear();
        }
@@ -47,14 +48,17 @@ public class DevinneyArray {
     */
    
    public void ReadFromFile() throws IOException {
+       // open data file
        File nameFile = new File("src/Assignment3DataFile.txt");
        Scanner inFile = new Scanner(nameFile);
        
        while (inFile.hasNext()) {
+           // read one name per line
            String line = inFile.nextLine();
            Names.add(line);
        }
        
+       // update Number field
        Number = Names.size();
        
        inFile.close();
@@ -69,10 +73,13 @@ public class DevinneyArray {
        int i;
        String newName;
        
+       // repeat process N times
        for (i = 0; i < N; i++) {
            System.out.println("Type the name you want to add: ");
            newName = scnr.nextLine();
+           // add new names to array
            Names.add(newName);
+           // update Number field
            Number++;
        }
    }
@@ -85,6 +92,7 @@ public class DevinneyArray {
        
        System.out.printf("The array of %d items is:\n", Names.size());
        
+       // print array line by line
        for (i = 0; i < Names.size(); i++) {
            System.out.println(Names.get(i));
        }
@@ -103,6 +111,8 @@ public class DevinneyArray {
        // int position = -1;
        boolean found = false;
        
+       // binary search algorithm
+       // adapted from textbook
        while (!found && first <= last) {
            middle = (first + last) / 2;
            if (Names.get(middle).compareTo(S) == 0) {
@@ -126,8 +136,10 @@ public class DevinneyArray {
    public void SearchAndOutput(String S) {
        int i;
        
+       // sequential search
        for (i = 0; i < Names.size(); i++) {
            if (Names.get(i).equals(S)) {
+               // names may be found more than once
                System.out.printf("%s found at index %d\n", S, i);
            }
        }
@@ -141,6 +153,8 @@ public class DevinneyArray {
        int startScan, index, minIndex; 
        String minValue;
        
+       // selection sort algorithm
+       // adpated from textbook
        for (startScan = 0; startScan < Names.size() - 1; startScan++) {
            minIndex = startScan;
            minValue = Names.get(startScan);
@@ -163,6 +177,7 @@ public class DevinneyArray {
     * @return String element at index
     */
    public String Get(int N) {
+       // basic get method
        return Names.get(N);
    }
    
@@ -172,6 +187,8 @@ public class DevinneyArray {
     * @param S element to set
     */
    public void Set(int N, String S) {
+       // basic set method
+       // case for N out of bounds
        if (N >= Names.size()) {
            Names.set(0, S);
        }
@@ -187,8 +204,10 @@ public class DevinneyArray {
    
    public String ToString() {
        String list;
+       // use stringbuilder class for mutable string
        StringBuilder summary = new StringBuilder();
        
+       // append required information
        summary.append("Names[");
        summary.append(this.Number);
        summary.append("]: ");
@@ -198,6 +217,7 @@ public class DevinneyArray {
            summary.append(", ");
        }
        
+       // convert to string to return
        list = summary.toString();
        
        return list;
